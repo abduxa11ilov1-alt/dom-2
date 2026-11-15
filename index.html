@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>devfinder - GitHub User Search App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./main.css" />
+</head>
+<body>
+
+  <main class="container">
+    <!-- Top Header -->
+    <header>
+      <div class="logo">devfinder</div>
+      <button class="theme-btn" id="themeToggle">
+        <span id="themeText">DARK</span>
+        <svg id="themeIcon" width="20" height="20" viewBox="0 0 20 20">
+          <path d="M19.513 11.397a.701.701 0 00-.588.128 7.496 7.496 0 01-2.276 1.336 7.101 7.101 0 01-2.583.462 7.505 7.505 0 01-5.32-2.209 7.568 7.568 0 01-2.199-5.342c0-.873.154-1.72.41-2.49a6.904 6.904 0 011.227-2.21.657.657 0 00-.102-.924.701.701 0 00-.589-.154C5.32.397 3.347 1.682 2.013 3.556A9.776 9.776 0 00.18 9.272c0 2.67 1.052 5.186 2.95 7.086 1.898 1.9 4.412 2.952 7.079 2.952 2.232 0 4.361-.745 6.105-2.105 1.744-1.36 3.001-3.233 3.591-5.367a.685.685 0 00-.392-.441z"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Search Bar -->
+    <form class="search-box" id="searchForm">
+      <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M10.609 0c5.85 0 10.608 4.746 10.608 10.58 0 2.609-.952 5-2.527 6.847l5.112 5.087a.87.87 0 01-1.227 1.233l-5.118-5.093a10.58 10.58 0 01-6.848 2.505C4.759 21.16 0 16.413 0 10.58 0 4.747 4.76 0 10.609 0zm0 1.74c-4.891 0-8.87 3.965-8.87 8.84 0 4.874 3.979 8.84 8.87 8.84a8.855 8.855 0 006.213-2.537l.04-.047a.881.881 0 01.058-.053 8.786 8.786 0 002.558-6.203c0-4.875-3.979-8.84-8.87-8.84z" fill="currentColor"/>
+      </svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search GitHub username…" autocomplete="off" />
+      <span class="error-msg" id="errorMsg">No results</span>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+
+    <!-- Profile Card -->
+    <section class="profile-card">
+      <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="Avatar" class="avatar desktop-avatar" id="desktopAvatar" />
+
+      <div class="profile-content">
+        <div class="mobile-header-wrapper">
+          <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="Avatar" class="avatar mobile-avatar" id="mobileAvatar" />
+          <div class="profile-header">
+            <div>
+              <h1 class="name" id="userName">The Octocat</h1>
+              <a href="https://github.com/octocat" target="_blank" class="username" id="userLogin">@octocat</a>
+            </div>
+            <p class="joined-date" id="joinedDate">Joined 25 Jan 2011</p>
+          </div>
+        </div>
+
+        <p class="bio" id="userBio">This profile has no bio</p>
+
+        <div class="stats-box">
+          <div>
+            <p class="stat-title">Repos</p>
+            <p class="stat-value" id="reposCount">8</p>
+          </div>
+          <div>
+            <p class="stat-title">Followers</p>
+            <p class="stat-value" id="followersCount">3938</p>
+          </div>
+          <div>
+            <p class="stat-title">Following</p>
+            <p class="stat-value" id="followingCount">9</p>
+          </div>
+        </div>
+
+        <div class="links-grid">
+          <div class="link-item" id="locationItem">
+            <svg width="14" height="20" viewBox="0 0 14 20"><path d="M13.345 6.832c0 2.725-2.935 7.313-6.203 12.82a.47.47 0 01-.808 0C3.066 14.145.131 9.557.131 6.832A6.613 6.613 0 016.738.225a6.613 6.613 0 016.607 6.607zm-4.25 0a2.357 2.357 0 10-4.714 0 2.357 2.357 0 004.714 0z"/></svg>
+            <span id="userLocation">San Francisco</span>
+          </div>
+
+          <div class="link-item not-available" id="twitterItem">
+            <svg width="20" height="17" viewBox="0 0 20 17"><path d="M20 2.172a8.192 8.192 0 01-2.357.646 4.11 4.11 0 001.804-2.27 8.22 8.22 0 01-2.605.996A4.096 4.096 0 0013.847.248c-2.65 0-4.596 2.472-3.998 5.037A11.648 11.648 0 011.392 1a4.109 4.109 0 001.27 5.478 4.086 4.086 0 01-1.858-.513c-.045 1.9 1.318 3.679 3.291 4.075a4.113 4.113 0 01-1.853.07 4.106 4.106 0 003.833 2.849A8.25 8.25 0 010 14.658a11.616 11.616 0 006.29 1.843c7.618 0 11.922-6.434 11.663-12.205A8.354 8.354 0 0020 2.172z"/></svg>
+            <a href="#" target="_blank" id="userTwitter">Not Available</a>
+          </div>
+
+          <div class="link-item" id="blogItem">
+            <svg width="20" height="20" viewBox="0 0 20 20"><path d="M11.66 8.34a4.996 4.996 0 00-7.07 0L1.46 11.47a5 5 0 007.07 7.07l1.76-1.76a.999.999 0 10-1.41-1.41l-1.76 1.76a3 3 0 11-4.24-4.24l3.13-3.13a3 3 0 014.24 0 .999.999 0 101.41-1.42zm6.88-6.88a5 5 0 00-7.07 0L9.71 3.22a.999.999 0 101.41 1.41l1.76-1.76a3 3 0 114.24 4.24l-3.13 3.13a3 3 0 01-4.24 0 .999.999 0 10-1.41 1.42 4.996 4.996 0 007.07 0l3.13-3.13a5 5 0 000-7.07z"/></svg>
+            <a href="https://github.blog" target="_blank" id="userBlog">https://github.blog</a>
+          </div>
+
+          <div class="link-item" id="companyItem">
+            <svg width="20" height="20" viewBox="0 0 20 20"><path d="M0 19.999V1.111C0 .497.497 0 1.111 0h8.889c.614 0 1.111.497 1.111 1.111v4.444h7.778c.614 0 1.111.498 1.111 1.112v13.332H0zm2.222-2.222h2.222v-2.222H2.222v2.222zm0-4.444h2.222v-2.223H2.222v2.223zm0-4.445h2.222V6.667H2.222v2.221zm0-4.444h2.222V2.222H2.222v2.222zm4.445 13.333h2.222v-2.222H6.667v2.222zm0-4.444h2.222v-2.223H6.667v2.223zm0-4.445h2.222V6.667H6.667v2.221zm0-4.444h2.222V2.222H6.667v2.222zm4.444 13.333h6.667V7.777h-6.667v10zm2.222-6.666h2.223v2.222h-2.223v-2.222zm0 4.444h2.223v2.222h-2.223v-2.222z"/></svg>
+            <span id="userCompany">@github</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
